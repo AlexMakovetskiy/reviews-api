@@ -1,5 +1,6 @@
 const userService = require('../service/user-service');
 const { validationResult } = require('express-validator');
+const mongoose = require('mongoose');
 
 const ApiError = require('../exceptions/api-error');
 
@@ -22,9 +23,10 @@ class UserController {
     async getReviews(request, response, next) {
         try {
             const reviews = await userService.module.getAllReviews();
-            return response
+            response
                 .status(200)
                 .json(reviews);
+            return mongoose.disconnect();
         } catch (error) {
             next(error);
         }
