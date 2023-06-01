@@ -29,6 +29,7 @@ const start = async () => {
         app.listen(PORT, (error) => {
             error ? console.log(error) : console.log(`Server opened in PORT: ${PORT}`);
         });
+
     } catch (error) {
         console.log(error);
     }
