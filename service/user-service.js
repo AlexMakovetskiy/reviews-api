@@ -6,6 +6,7 @@ const mailService = require('./mail-service');
 const tokenService = require('./token-service');
 const UserDto = require('../dtos/user-dto');
 const userModel = require('../models/user-model');
+const reviewModel = require('../models/review-model');
 const ApiError = require('../exceptions/api-error');
 
 class UserService {
@@ -32,7 +33,7 @@ class UserService {
     async activate(activationLink) {
         const user = await userModel.findOne({activationLink});
         if(!user)
-            throw ApiError.BadRequest('Incorrect activation Link'); // нужно поправить
+            throw ApiError.BadRequest('Incorrect activation Link');
         user.isActivated = true;
         await user.save();
     };
@@ -82,10 +83,16 @@ class UserService {
         };
     }
 
-    async getAllUsers() {
-        const users = await UserModel.find();
-        return users;
+    // async getAllUsers() {
+    //     const users = await UserModel.find();
+    //     return users;
+    // }
+
+    async getAllReviews () {
+        const reviews = await reviewModel.find();
+        return reviews;
     }
+    
 }
 
 exports.module = new UserService(); 

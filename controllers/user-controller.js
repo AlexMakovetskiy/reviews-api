@@ -18,6 +18,17 @@ class UserController {
             next(error);
         }
     }
+
+    async getReviews(request, response, next) {
+        try {
+            const reviews = await userService.module.getAllReviews();
+            return response
+                .status(200)
+                .json(reviews);
+        } catch (error) {
+            next(error);
+        }
+    }
     
     async registration(request, response, next) {
         try {
