@@ -2,3 +2,6 @@
 /.eslintrc
 /.env
 /.vscode
+# Local Netlify folder
+.netlify
+/functions
