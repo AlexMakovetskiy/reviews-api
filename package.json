@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon index.js",
-    "build": "netlify deploy --prod",
     "lint": "eslint .",
-    "lint:fix": "npm run lint -- --fix"
+    "lint:fix": "npm run lint -- --fix",
+    "start": "node index.js",
+    "build": "npm install"
   },
   "author": "",
   "license": "ISC",
@@ -31,6 +31,6 @@
     "nodemon": "^2.0.22"
   },
   "engines": {
-    "node": "18.14.0"
+    "node": ">=14.17.5"
   }
 }
