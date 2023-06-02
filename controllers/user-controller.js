@@ -23,10 +23,9 @@ class UserController {
     async getReviews(request, response, next) {
         try {
             const reviews = await userService.module.getAllReviews();
-            response
+            return response
                 .status(200)
                 .json(reviews);
-            return mongoose.disconnect();
         } catch (error) {
             next(error);
         }

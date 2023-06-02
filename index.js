@@ -28,7 +28,6 @@ const start = async () => {
             .catch((error) => console.log(`Connection error: ${error}`));
         app.listen(PORT, (error) => {
             error ? console.log(error) : console.log(`Server opened in PORT: ${PORT}`);
-        mongoose.disconnect();
         });
 
     } catch (error) {
