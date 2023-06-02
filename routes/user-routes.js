@@ -16,10 +16,7 @@ router.post('/logout', UserController.logout);
 router.get('/reviews', UserController.getReviews);
 router.options('/*', UserController.handleOptions);
 
-// router.get('/users',authMiddleware, UserController.getUsers);
-// router.get('/users', UserController.getUsers);
-
-router.get('/activate/:link', authMiddleware, UserController.activate);
+router.get('/activate/:link', UserController.activate);
 router.get('/refresh', authMiddleware, UserController.refresh);
 
 module.exports = router;   
